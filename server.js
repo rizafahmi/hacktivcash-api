@@ -1,4 +1,7 @@
 const app = require('express')()
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 const products = require('./controllers/product')(app)
 
 app.get('', (req, res) => {
