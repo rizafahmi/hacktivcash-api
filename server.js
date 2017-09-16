@@ -1,5 +1,11 @@
 const app = require('express')()
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+mongoose.Promise = global.Promise
+mongoose.connect('mongodb://localhost/products', {
+  useMongoClient: true
+})
 
 app.use(bodyParser.json())
 const products = require('./controllers/product')(app)
